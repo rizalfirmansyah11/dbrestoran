@@ -1,5 +1,7 @@
 <div style="margin:auto; width: 900px;">
 
+<h3><a href="http://localhost/semester%20genap/phpsmk/restoran/kategori/insert.php">TAMBAH DATA</a></h3>
+
 <?php
 
     require_once "../function.php";
@@ -27,7 +29,7 @@
     if (isset($_GET['p'])) {
        $p=$_GET['p'];
        $mulai = ($p * $banyak)- $banyak;
-        // = (2*3) - 3
+        // = (3*3) - 3
     }else {
         $mulai =0;
     }
