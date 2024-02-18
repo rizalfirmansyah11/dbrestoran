@@ -58,7 +58,7 @@
     $db = new DB;
 
     
-    $db->pesan("berhasil");
+    // $db->pesan("berhasil");
    
 
     //var_dump($row);
