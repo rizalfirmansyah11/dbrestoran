@@ -84,7 +84,7 @@
                 <td><?php echo $no++ ?></td>
                 <td><?php echo $r['menu'] ?></td>
                 <td><?php echo $r['harga'] ?></td>
-                <td><img style="width:80px;" src="../upload/<?php echo $r['gambar'] ?>" alt=""></td>
+                <td><img style="width:80px;" src="../upload/lontongbuah.jpeg" alt=""></td>
                 <td><a href="?f=menu&m=delete&id=<?php echo $r['idmenu'] ?>">Delete</a></td>
                 <td><a href="?f=menu&m=update&id=<?php echo $r['idmenu'] ?>">Update</a></td>
 
