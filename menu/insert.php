@@ -31,7 +31,7 @@
             <label for="">Gambar</label><br>
             <input type="file" name="gambar">
         </div>
-        
+
         <div>
 
             <input type="submit" name="simpan" value="simpan" class="btn btn-primary">
@@ -40,27 +40,21 @@
      </form>
 </div>
 <?php 
-
-    if (isset($_POST['simpan'])) {
+    if(isset($_POST['simpan'])) {
         $idkategori=$_POST['idkategori'];
-        $menu=$_POST['menu'];
-        $harga=$_POST['harga'];
-        $gambar=$_FILES['gambar']['name'];
-        $temp=$_FILES['gambar']['tmp_name'];
+       $menu=$_POST['menu'];
+       $harga=$_POST['harga'];
+ $gambar=$_FILES['gambar']['name'];$temp=$_FILES['gambar']['tmp_name'];
 
-        if (empty($gambar)) {
-            echo "<h3>GAMBAR KOSONG</h3>";
-        }else {
-            $sql="INSERT INTO tblmenu VALUES('',$idkategori,'$menu','$gambar',$harga)";
+        if(empty($gambar)) {
+            echo" <h3>Gambar Kosong</h3>";
+        }
+        else {
+            $sql="INSERT INTO tblmenu VALUES ('',$idkategori,'$menu','$gambar',$harga)";
             move_uploaded_file($temp,'../upload/'.$gambar);
+
             $db->runSQL($sql);
             header("location:?f=menu&m=select");
-
-
         }
-
-        
-        
     }
-
 ?>
