@@ -3,6 +3,7 @@
 if (isset($_GET['hapus'])) {
     $id = $_GET['hapus'];
     unset($_SESSION['_' . $id]);
+    header("location:?f=home&m=beli");
 }
 
 if (isset($_GET['tambah'])) {
@@ -30,8 +31,6 @@ if (!isset($_SESSION['pelanggan'])) {
         keranjang();
     }
 }
-
-
 
 
 function isi($id)
