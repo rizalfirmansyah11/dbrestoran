@@ -1,6 +1,6 @@
 <h3>Insert User</h3>
-<div class="form-group">
 
+<div>
     <form action="" method="post">
         <div class="form-group w-50">
             <label for="">Nama user</label>
@@ -9,17 +9,17 @@
 
         <div class="form-group w-50">
             <label for="">Email</label>
-            <input type="email" name="email" required placeholder="isi email" class="form-control">
+            <input type="email" name="email" required placeholder="Email" class="form-control">
         </div>
 
         <div class="form-group w-50">
             <label for="">Password</label>
-            <input type="password" name="password" required placeholder="isi password" class="form-control">
+            <input type="password" name="password" required placeholder="password" class="form-control">
         </div>
 
         <div class="form-group w-50">
-            <label for="">Konfirmasi password</label>
-            <input type="password" name="konfirmasi" required placeholder="isi password" class="form-control">
+            <label for="">Konformasi Password</label>
+            <input type="password" name="konfirmasi" required placeholder="password" class="form-control">
         </div>
 
         <div class="form-group w-50">
@@ -29,35 +29,30 @@
                 <option value="koki">koki</option>
                 <option value="kasir">kasir</option>
             </select>
+
         </div>
 
-        
         <div>
-            <input type="submit" name="simpan" value="simpan" class="btn btn-primary">
-
+            <input type="submit" name="simpan" value="simpan" class="btn btn-secondary">
         </div>
-     </form>
+    </form>
 </div>
-<?php 
 
-    if (isset($_POST['simpan'])) {
-        $user=$_POST['user'];
-        $email=$_POST['email'];
-        $password=$_POST['password'];
-        $konfirmasi=$_POST['konfirmasi'];
-        $level=$_POST['level'];
+<?php
+if (isset($_POST['simpan'])) {
+    $user = $_POST['user'];
+    $email = $_POST['email'];
+    $password = hash('sha256',  $_POST['password']);
+    $konfirmasi = hash('sha256',  $_POST['konfirmasi']);
+    $level = $_POST['level'];
 
-        if ($password===$konfirmasi) {
-            $sql="INSERT INTO tbluser VALUES('','$user','$email','$password','$level',1)";
-            $db->runSQL($sql);
-            header("location:?f=user&m=select");
-            
-        }else {
-            echo '<h2>PASSWORD TIDAK SAMA DENGAN KONFIRMASI</h2>';
-        }
+    if ($password === $konfirmasi) {
+        $sql = "INSERT INTO tbluser VALUES ('','$user','$email','$password','$level',1)";
 
-        
-        
+        $db->runSQL($sql);
+        header("location:?f=user&m=select");
+    } else {
+        echo "<h3>PASSWORD TIDAK SAMA DENGAN KONFIRMASI</h3>";
     }
-
+}
 ?>
