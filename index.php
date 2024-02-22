@@ -18,7 +18,7 @@ function cart()
     $cart = 0;
 
     foreach ($_SESSION as $key => $value) {
-        if ($key <> 'pelanggan' && $key <> 'idpelanggan') {
+        if ($key <> 'pelanggan' && $key <> 'idpelanggan' && $key <> 'user' && $key <> 'level' && $key <> 'iduser') {
             $id = substr($key, 1);
 
             $sql = "SELECT * FROM tblmenu WHERE idmenu=$id";
@@ -62,6 +62,7 @@ function cart()
                         <div class="float-end mt-4"><a href="?log=logout">Logout</a></div>
                         <div class="float-end mt-4 mr-4 me-4">Pelanggan : ' . $_SESSION['pelanggan'] . ' </div>
                         <div class="float-end mt-4 mr-4 me-4">Cart : ( <a href="?f=home&m=beli"> ' . cart() . ' </a> ) </div>
+                        <div class="float-end mt-4 mr-4 me-4"> <a href="?f=home&m=histori"> Histori </a> </div>
                     
                     ';
                 } else {
