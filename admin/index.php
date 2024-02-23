@@ -98,7 +98,7 @@ if (isset($_GET['log'])) {
         <div class="row mt-5">
 
             <div class="col">
-                <p class="text-center">2019 - copyright@smkrevit.com</p>
+                <p class="text-center">2024 - copyright@smkrevit.com</p>
             </div>
         </div>
     </div>
